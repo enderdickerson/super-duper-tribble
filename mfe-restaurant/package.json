@@ -1,12 +1,12 @@
 {
-  "name": "mfe-container",
-  "description": "Entry point and container for micro frontend demo",
+  "name": "mfe-restaurant",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "history": "^5.0.0",
     "react": "^17.0.1",
     "react-app-rewire-micro-frontends": "^0.0.1",
     "react-app-rewired": "^2.1.8",
@@ -17,17 +17,17 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "PORT=3000 react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "PORT=3003 react-app-rewired start",
+    "build": "reat-app-rewired build",
     "test": "react-app-rewired test"
   },
-  "config-overrides-path": "node_modules/react-app-rewire-micro-frontends",
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
   },
+  "config-overrides-path": "node_modules/react-app-rewire-micro-frontends",
   "browserslist": {
     "production": [
       ">0.2%",

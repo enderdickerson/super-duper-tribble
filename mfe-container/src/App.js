@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import MicroFrontend from './components/MicroFrontend';
+import AppHeader from './components/AppHeader';
 
 const {
   REACT_APP_BROWSE_HOST: browseHost,
@@ -29,11 +30,14 @@ const Random = () => <Redirect to={`/restaurant/${getRandomRestaurantId()}`} />;
 function App() {
   return (
     <Router>
+      <>
+      <AppHeader />
       <Switch>
         <Route exact path="/" component={Browse} />
         <Route exact path="/restaurant/:id" component={Restaurant} />
         <Route exact path="/random" component={Random} />
       </Switch>
+      </>
     </Router>
   );
 }
