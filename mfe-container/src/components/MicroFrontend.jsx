@@ -7,7 +7,7 @@ const mfeConfig = (name, history) => () => {
 
 const MicroFrontend = ({ name, host, history }) => {
   useEffect(() => {
-    const renderMicroFrontend = mfeConfig(name, host, history);
+    const renderMicroFrontend = mfeConfig(name, history);
     const scriptId = `micro-frontend-script-${name}`;
 
     if (document.getElementById(scriptId)) {
@@ -20,7 +20,8 @@ const MicroFrontend = ({ name, host, history }) => {
       .then((manifest) => {
         const script = document.createElement('script');
         script.id = scriptId;
-        script.src = `${host}${manifest['main.js']}`;
+        script.crossOrigin = '';
+        script.src = `${host}${manifest.files['main.js']}`;
         script.onload = renderMicroFrontend;
         document.head.appendChild(script);
       });
@@ -28,7 +29,7 @@ const MicroFrontend = ({ name, host, history }) => {
       return () => {
         window[`unmount${name}`](`${name}-container`);
       }
-  }, [name, host, history]);
+  });
 
   return <main id={`${name}-container`} />;
 };
